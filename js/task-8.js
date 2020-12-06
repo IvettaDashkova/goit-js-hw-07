@@ -1,6 +1,6 @@
-const btnCreateDivs = document.querySelector('button[data-action="render"')
+const btnCreateDivs = document.querySelector('button[data-action="render"]')
 
-const btnDeleteDivs = document.querySelector('button[data-action="destroy"')
+const btnDeleteDivs = document.querySelector('button[data-action="destroy"]')
 
 const input = document.querySelector("div#controls > input")
 
