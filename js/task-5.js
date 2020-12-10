@@ -1,9 +1,11 @@
-const newName = document.querySelector('input#name-input');
+const inputNewName = document.querySelector('input#name-input');
 
-const oldName = document.querySelector('span#name-output');
+const getName = document.querySelector('span#name-output');
+
+const defoltName = getName.textContent;
 
 const showName = () => {
-  const res = newName.value ?  oldName.textContent = newName.value : oldName.textContent = 'незнакомец';
+	return event.target.value ? (getName.textContent = event.target.value) : (getName.textContent = defoltName)
 }
 
-newName.addEventListener('input', showName);
+inputNewName.addEventListener('input', showName);

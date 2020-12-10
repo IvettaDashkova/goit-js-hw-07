@@ -12,21 +12,21 @@ let height = 20
 let color
 
 // колл-бэки
-
 function createBoxes(amount) {
-    amount = +input.value;
-    for (let i = 0; i < amount; i += 1) {
-        width += 10
-        height += 10
-
+	amount = +input.value
+	let arr = []
+	for (let i = 0; i < amount; i += 1) {
+		width += 10
+		height += 10
 		const tagDiv = document.createElement("div")
-		tagDiv.style.backgroundColor = `#${backgroundColorRandom()}`
+		tagDiv.style.backgroundColor = `${backgroundColorRandom()}`
 		tagDiv.style.width = `${width}px`
 		tagDiv.style.height = `${height}px`
-		box.append(tagDiv)
+		arr.push(tagDiv)
 	}
-	return
+	return box.append(...arr)
 }
+
 function destroyBoxes() {
 	box.textContent = ""
 	input.value = 0
@@ -35,15 +35,12 @@ function destroyBoxes() {
 	return
 }
 function backgroundColorRandom() {
-	color = Math.round(255.0 * Math.random())
-	let r = color.toString(16)
-	color = Math.round(255.0 * Math.random())
-	let g = color.toString(16)
-	color = Math.round(255.0 * Math.random())
-	let b = color.toString(16)
-	color = r + g + b
-	return color
+	return "rgb(" + r() + "," + r() + "," + r() + ")"
+}
+function r() {
+	return Math.round(255.0 * Math.random());
 }
 // слушатели
 btnCreateDivs.addEventListener("click", () => createBoxes())
 btnDeleteDivs.addEventListener("click", destroyBoxes)
+	

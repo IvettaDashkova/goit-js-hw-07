@@ -1,29 +1,28 @@
 const images = [
-    {
-        url:
-            'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        alt: 'White and Black Long Fur Cat',
-    },
-    {
-        url:
-            'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
-    },
-    {
-        url:
-            'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        alt: 'Group of Horses Running',
-    },
-];
+	{
+		url:
+			"https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+		alt: "White and Black Long Fur Cat",
+	},
+	{
+		url:
+			"https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+		alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+	},
+	{
+		url:
+			"https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+		alt: "Group of Horses Running",
+	},
+]
 
-const gallery = document.querySelector('ul#gallery');
-const addItemWithImg = (array, list) => array.forEach(({ url, alt }) => {
-    let stringWithAtributes = list.insertAdjacentHTML('afterbegin', `<li><img src="${url}" alt="${alt}"></li>`);
-});
-addItemWithImg(images, gallery);
-console.log(gallery);
+const gallery = document.querySelector("ul#gallery")
 
-
-
-
-
+function addItemWithImg(array, parent) {
+	const shapeStringWithAtributes = array.map(({ url, alt }) => {
+		let stringWithAtributes = `<li><img src="${url}" alt="${alt}"></li>`
+		return stringWithAtributes
+	})
+	parent.insertAdjacentHTML("afterbegin", shapeStringWithAtributes.join(" "))
+}
+addItemWithImg(images, gallery)
